@@ -1,0 +1,25 @@
+mat-card {
+    display: flex;
+    align-items: center;
+}
+
+mat-card-title {
+    margin-top: 8px;
+}
+
+.etiquetas {
+    font-weight: bold;
+}
+
+.colectivos-container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 5px;
+}

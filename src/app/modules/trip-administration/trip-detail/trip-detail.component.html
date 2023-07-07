@@ -1,0 +1,109 @@
+<mat-card>
+    <form [formGroup]="tripForm" (ngSubmit)="guardarCambios()">
+        <mat-card-header>
+            <button type="button" class="go-back-button" mat-icon-button color="primary" (click)="volverAtras()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+
+        </mat-card-header>
+        <mat-card-content>        
+            <div class="form-field" >
+                <h2>
+                    Detalle del viaje
+                </h2>
+                <mat-form-field>
+                    <mat-label>Origen</mat-label>
+                    <input matInput type="text" formControlName="origen">
+                    <div *ngIf="tripForm.controls['origen'].invalid &&
+                    (tripForm.controls['origen'].dirty || tripForm.controls['origen'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['origen'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Destino</mat-label>
+                    <input matInput type="text" formControlName="destino">
+        
+                    <div *ngIf="tripForm.controls['destino'].invalid &&
+                    (tripForm.controls['destino'].dirty || tripForm.controls['destino'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['destino'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Fecha de salida</mat-label>
+        
+                    <input matInput formControlName="fechaSalida"
+                        [matDatepicker]="pickerSalida">
+                    <mat-hint>mm/dd/yyyy</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="pickerSalida"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerSalida></mat-datepicker>
+        
+                    <div *ngIf="tripForm.controls['fechaSalida'].invalid &&
+                        (tripForm.controls['fechaSalida'].dirty || tripForm.controls['fechaSalida'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['fechaSalida'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Fecha de llegada</mat-label>
+
+                    <input matInput formControlName="fechaLlegada"
+                        [matDatepicker]="pickerLlegada">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="pickerLlegada"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerLlegada></mat-datepicker>
+                    <div *ngIf="tripForm.controls['fechaLlegada'].invalid &&
+                    (tripForm.controls['fechaLlegada'].dirty || tripForm.controls['fechaLlegada'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['fechaLlegada'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Colectivo</mat-label>
+        
+                    <mat-select formControlName="colectivo">
+                    <mat-option disabled> -- </mat-option>
+                    <mat-option *ngFor="let bus of busList" [value]="bus.id">
+                        {{bus.patente}} | {{bus.cantidadAsientos}} | {{bus.modelo.marca}}
+                    </mat-option>
+                    </mat-select>
+        
+                    <div *ngIf="tripForm.controls['colectivo'].invalid &&
+                        (tripForm.controls['colectivo'].dirty || tripForm.controls['colectivo'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['colectivo'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Pasajeros</mat-label>
+                    <mat-select formControlName="pasajeros" multiple>
+                        <mat-option *ngFor="let person of personList" [value]="person.id">
+                            {{person.nombre}} {{person.apellido}}
+                        </mat-option>
+                    </mat-select>
+        
+                    <div *ngIf="tripForm.controls['pasajeros'].invalid &&
+                    (tripForm.controls['pasajeros'].dirty || tripForm.controls['pasajeros'].touched)">
+                        <mat-hint *ngIf="tripForm.controls['pasajeros'].errors['required']" class="mat-hint-alert">
+                            Por favor complete este campo
+                        </mat-hint>
+                    </div>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="basic" [disabled]="tripForm.invalid">
+                    Guardar
+                </button>
+            </div>
+        </mat-card-content>
+    </form>
+</mat-card>

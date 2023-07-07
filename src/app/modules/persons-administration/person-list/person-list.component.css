@@ -1,0 +1,42 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+mat-card-header {
+    align-self: center;
+    gap: 25px;
+}
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+mat-card-title{
+    margin-top: 22px;
+}
+
+button {
+    margin-right: 5px;
+    margin-top: 15px;
+}
+
+mat-icon {
+    align-self: center
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.persona-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.persona-edad-container {
+    font-weight: bold;
+}

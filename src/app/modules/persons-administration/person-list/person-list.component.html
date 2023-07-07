@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+        <button mat-icon-button color="primary" (click)="crearPersona()" class="btn-add">
+            <mat-icon>person_add</mat-icon>
+        </button>
+        <mat-card-title>Listado de personas</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div *ngFor="let pers of personList" class="persona-container">
+            <div class="container">
+                <span>Edad: {{pers.edad}}</span>
+                <span>Nombre: {{pers.nombre}}</span>
+                <span>Apellido: {{pers.apellido}}</span>
+                
+                <div *ngIf="pers.edad >= 18" class="persona-edad-container">
+                    <span>Es mayor de edad</span>
+                </div>    
+                
+                <div *ngIf="pers.edad < 18" class="persona-edad-container">
+                    <span>Es menor de edad</span>
+                </div> 
+            </div>
+            <button mat-button color="basic" (click)="seleccionarPersona(pers)">
+                Editar
+            </button>
+            <button mat-mini-fab color="warn" (click)="borrarPersona(pers)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+

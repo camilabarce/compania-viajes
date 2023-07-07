@@ -1,0 +1,28 @@
+<mat-nav-list> 
+    <mat-list-item>
+        <a routerLink="/person/list">
+            <div class="mat-list-item">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <h4 mat-line *ngIf="isExpanded">Personas</h4>
+            </div>
+        </a>
+    </mat-list-item>
+
+    <mat-list-item>
+        <a routerLink="/buses/list">
+            <div class="mat-list-item">
+                <mat-icon mat-list-icon>directions_bus_filled</mat-icon>
+                <h4 mat-line *ngIf="isExpanded">Colectivos</h4>
+            </div>
+        </a>
+    </mat-list-item>
+
+    <mat-list-item>
+        <a routerLink="/trips/list">
+            <div class="mat-list-item">
+                <mat-icon mat-list-icon>alt_route</mat-icon>
+                <h4 mat-line *ngIf="isExpanded">Viajes</h4>
+            </div>
+        </a>
+    </mat-list-item>
+</mat-nav-list>

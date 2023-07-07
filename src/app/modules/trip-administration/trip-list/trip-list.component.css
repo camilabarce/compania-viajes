@@ -1,0 +1,9 @@
+mat-card-header {
+    align-self: center;
+    gap: 25px;
+    margin-bottom: 5px;
+}
+
+mat-card-title{
+    margin-top: 8px;
+}

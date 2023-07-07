@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Listado de colectivos</mat-card-title>
+        <button mat-icon-button color="primary" (click)="crearColectivo()">
+            <mat-icon>add_bus</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+        <mat-card *ngFor="let bus of busesList">
+            <div class="colectivos-container">
+                <mat-card-content>
+                    <span class="etiquetas">Patente: </span> <span>{{bus.patente}}</span><br>
+                    <span class="etiquetas">Cantidad de asientos: </span> <span></span>{{bus.cantidadAsientos}}<br>
+                    <span class="etiquetas">Nombre: </span> <span>{{bus.modelo.nombre}}</span><br>
+                    <span class="etiquetas">Marca: </span> <span>{{bus.modelo.marca}}</span><br>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions>
+                    <button mat-button color="basic" (click)="editarColectivo(bus)">Editar</button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </mat-card-content>
+</mat-card>
