@@ -1,16 +1,10 @@
 mat-card {
     display: flex;
-    flex-direction: column;
-    margin: auto;
+    align-items: center;
 }
 mat-card-header {
     align-self: center;
     gap: 25px;
-}
-mat-card-content {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
 }
 
 mat-card-title{
@@ -26,17 +20,28 @@ mat-icon {
     align-self: center
 }
 
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
 
-.persona-container {
+.personas-container {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    padding-bottom: 10px;
 }
+.etiquetas {
+    font-weight: bold;
+}
+
 .persona-edad-container {
     font-weight: bold;
 }
