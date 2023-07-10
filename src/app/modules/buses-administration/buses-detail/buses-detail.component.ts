@@ -77,7 +77,7 @@ export class BusesDetailComponent implements OnInit {
     const body: BusDTO = {
       patente: this.busForm.get('patente').value,
       cantidadAsientos: this.busForm.get('cantidadAsientos').value,
-      modeloId:  this.busForm.get('modelos').value,
+      modeloId:  this.busForm.get('modelo').value,
     }
 
     if (this.selectedBus && this.selectedBus.id) {

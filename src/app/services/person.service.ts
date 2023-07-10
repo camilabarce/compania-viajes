@@ -75,7 +75,7 @@ export class PersonService {
   }
 
   borrar(id: number): Observable<HttpResponse<any>> {
-    return this.http.delete<any>( this.resourceUrl + '/' + id, {observe: "response"}).pipe(
+    return this.http.delete<any>(this.resourceUrl + '/' + id, {observe: "response"}).pipe(
       catchError(err => {
         console.log("Ocurrió un error: ");
         console.log(err);

@@ -42,11 +42,21 @@ export class BusService {
   }
 
   actualizarColectivo (bus: BusDTO) {
-    return this.http.put<any>(this.resourceUrl, bus).pipe(
+    return this.http.put<any>(this.resourceUrl + '/' + bus.id, bus).pipe(
       catchError(err => {
         console.log("Ocurrió un error: ");
         console.log(err);
         return throwError(() => "No se pudo actualizar el colectivo con id: " + bus.id);
+      }),
+    );
+  }
+
+  borrar(id: number): Observable<HttpResponse<any>> {
+    return this.http.delete<any>(this.resourceUrl + '/' + id, {observe: "response"}).pipe(
+      catchError(err => {
+        console.log("Ocurrió un error: ");
+        console.log(err);
+        return throwError(() => "No existe el colectivo");
       }),
     );
   }
@@ -56,5 +66,5 @@ export interface BusDTO {
   id?: number;
   patente: string;
   cantidadAsientos: number;
-  modeloId: number[];
+  modeloId: number;
 }

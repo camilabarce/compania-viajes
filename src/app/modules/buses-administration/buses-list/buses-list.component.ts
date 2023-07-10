@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Bus } from 'src/app/models/bus';
 import { BusService } from 'src/app/services/bus.service';
@@ -15,9 +16,14 @@ export class BusesListComponent implements OnInit {
 
   constructor (private busService: BusService,
               private modeloService: ModeloService,
-              private router: Router) {}
+              private router: Router,
+              private matSnackBar: MatSnackBar) {}
   
   ngOnInit() {
+    this.loadBuses();
+  }
+
+  loadBuses(){
     this.busService.findAll().subscribe(res => {
       this.busesList = res.body.map(res => {
         const bus = new Bus (res.id, res.patente, res.cantidadAsientos, res.modeloId);
@@ -38,5 +44,15 @@ export class BusesListComponent implements OnInit {
   }
   crearColectivo() {
     this.router.navigate(['buses','create'])
+  }
+
+  borrarColectivo(bus: Bus) {
+    this.busService.borrar(bus.id).subscribe(res => {
+      this.matSnackBar.open("Se borró correctamente el colectivo", "Cerrar");
+      this.loadBuses();
+    }, error => {
+      console.log(error);
+      this.matSnackBar.open(error, "Cerrar");
+    });
   }
 }

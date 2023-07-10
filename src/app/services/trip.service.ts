@@ -42,7 +42,7 @@ export class TripService {
   }
 
   actualizarViaje(trip: TripDTO) {
-    return this.http.put<any>(this.resourceUrl, trip).pipe(
+    return this.http.put<any>(this.resourceUrl + '/' + trip.id, trip).pipe(
       catchError(err => {
         console.log("Ocurrió un error: ");
         console.log(err);
@@ -52,7 +52,7 @@ export class TripService {
   }
 
   borrar(id: number): Observable<HttpResponse<any>> {
-    return this.http.delete<any>( this.resourceUrl + '/' + id, {observe: "response"}).pipe(
+    return this.http.delete<any>(this.resourceUrl + '/' + id, {observe: "response"}).pipe(
       catchError(err => {
         console.log("Ocurrió un error: ");
         console.log(err);
@@ -60,8 +60,6 @@ export class TripService {
       }),
     );
   }
-
-  // }
 }
 
 export interface TripDTO {
