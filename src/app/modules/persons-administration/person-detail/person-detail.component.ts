@@ -15,9 +15,9 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class PersonDetailComponent implements OnInit {
   
   selectedPerson: Person | null = null; 
-  nameControl = new FormControl('', [Validators.required]);
-  ageControl = new FormControl('', [Validators.required]);
-  lastNameControl = new FormControl('', [Validators.required]);
+  // nameControl = new FormControl('', [Validators.required]);
+  // ageControl = new FormControl('', [Validators.required]);
+  // lastNameControl = new FormControl('', [Validators.required]);
 
 
   personForm: FormGroup = this.fb.group ({
