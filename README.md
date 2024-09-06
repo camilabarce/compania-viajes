@@ -8,9 +8,6 @@ Aplicación web para visualizar, agregar, editar y eliminar viajes, pasajeros y 
 
 **Client:** Angular w/, Material UI
 
-**Server:** Spring Boot
-
-
 ## Instalación
 
 ```bash
